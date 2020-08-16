@@ -1,0 +1,18 @@
+{
+  "name": "santa-clima",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/100f/santa-clima",
+  "author": "Caio <cemf1996@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.57",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4"
+  }
+}
