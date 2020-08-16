@@ -1,0 +1,31 @@
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "node": "current"
+                }
+            }
+        ],
+        "@babel/preset-react",
+        "@babel/preset-typescript"
+    ],
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "root": [
+                    "./src/"
+                ],
+                "alias": {
+                    "@routes": "./src/routes",
+                    "@config:": "./src/config",
+                    "@services": "./src/services",
+                    "@utils": "./src/utils",
+                    "@views": "./src/views"
+                }
+            }
+        ]
+    ]
+}
