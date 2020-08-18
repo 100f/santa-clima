@@ -5,10 +5,9 @@
         "node": true
     },
     "extends": [
-        "eslint:recommended",
+        "airbnb",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "airbnb"
+        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -23,37 +22,34 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "array-bracket-spacing": [
-            "error",
-            "never"
-        ],
-        "array-element-newline": [
+        "semi": "off",
+        "@typescript-eslint/member-delimiter-style": [
             "error",
             {
-                "minItems": 3
+                "multiline": {
+                    "delimiter": "none"
+                }
             }
         ],
-        "brace-style": [
-            "error",
-            "stroustrup"
-        ],
-        "comma-style": [
-            "error",
-            "last"
-        ],
-        "react/prop-types": "off",
-        "import/extensions": [
-            "error",
-            "ignorePackages",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-extra-non-null-assertion": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "no-constant-condition": "off",
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/explicit-function-return-type": [
+            "off",
             {
-                "ts": "never",
-                "tsx": "never"
+                "allowExpressions": false
             }
+        ],
+        "linebreak-style": [
+            "error",
+            "windows"
         ]
-    },
-    "settings": {
-        "import/resolver": {
-            "typescript": {}
-        }
     }
 }

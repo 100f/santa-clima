@@ -12,7 +12,7 @@
     "rootDir": "./src",
     "removeComments": true,
     "strict": false,
-    "noImplicitReturns": true,
+    // "noImplicitReturns": true,
     "baseUrl": ".",
     "paths": {
       "@routes/*": [
@@ -40,12 +40,12 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "include": [
-      "src/**/*"
-    ],
-    "exclude": [
-      "node_modules"
-    ]
-  }
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
