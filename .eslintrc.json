@@ -50,6 +50,10 @@
         "linebreak-style": [
             "error",
             "windows"
+        ],
+        "indent": [
+            "error",
+            4
         ]
     }
 }
