@@ -1,8 +1,8 @@
-const { rootPath } = require('./index');
+const { rootPath } = require('./base');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: path.join(rootPath, 'dist/renderer'),
     historyApiFallback: true,
@@ -15,18 +15,25 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.[js|ts|jsx|tsx]$/,
+        test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
+          loader: 'babel-loader'
+        }
+      },
+      {
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { sourceMap: true } }
+        ],
+        options: {
+          esModule: true,
         },
         query: {
           presets: ['es2015', 'react']
         }
-      }
+      },
     ]
   },
   output: {
@@ -37,7 +44,7 @@ module.exports = {
     new HtmlWebpackPlugin()
   ],
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js',],
   },
   target: 'electron-renderer',
 };
