@@ -1,4 +1,6 @@
 const { rootPath } = require('./base');
+const { join } = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -37,7 +39,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(rootPath, 'dist/'),
+    path: join(rootPath, 'dist/'),
     filename: '[name].js'
   },
   plugins: [

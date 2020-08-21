@@ -1,10 +1,10 @@
-const path = require('path');
 const webpack = require('webpack');
+const { resolve, join } = require('path');
 const { rootPath } = require('./base');
 
 module.exports = {
   devtool: 'source-map',
-  entry: path.resolve(rootPath, 'process', 'main.ts'),
+  entry: resolve(rootPath, 'process', 'main.ts'),
   module: {
     rules: [
       {
@@ -23,7 +23,7 @@ module.exports = {
     __dirname: false
   },
   output: {
-    path: path.join(rootPath, 'dist/'),
+    path: join(rootPath, 'dist/'),
     filename: '[name].js'
   },
   plugins: [

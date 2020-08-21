@@ -7,6 +7,7 @@
       "DOM"
     ],
     "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "jsx": "react",
     "outDir": "./dist",
     "removeComments": true,

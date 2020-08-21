@@ -1,7 +1,7 @@
-const path = require('path');
+const { resolve } = require('path');
 
 const baseConfig = {
-    rootPath: path.resolve(__dirname, '..', '..'),
+    rootPath: resolve(__dirname, '..', '..'),
     server: {
         //TO BE CONFIGURED
     },
