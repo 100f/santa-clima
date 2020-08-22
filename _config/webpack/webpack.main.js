@@ -4,11 +4,11 @@ const { rootPath } = require('./base');
 
 module.exports = {
   devtool: 'source-map',
-  entry: resolve(rootPath, 'process', 'main.ts'),
+  entry: ['core-js/stable', 'regenerator-runtime/runtime', resolve(rootPath, 'process', 'main.ts')],
   module: {
     rules: [
       {
-        test: /\.[js|ts|jsx|tsx]$/,
+        test: /\.(js|ts|jsx|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -20,15 +20,19 @@ module.exports = {
     ]
   },
   node: {
-    __dirname: false
+    __dirname: false,
+    __filename: false
   },
   output: {
     path: join(rootPath, 'dist/'),
-    filename: '[name].js'
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.jsx']
+  },
   target: 'electron-main',
 };
 

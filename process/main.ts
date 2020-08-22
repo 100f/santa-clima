@@ -2,13 +2,12 @@ import { app, BrowserWindow } from 'electron';
 import { join } from 'path';
 import * as url from 'url';
 
-const inDevelopment = process.env.NODE_ENV === 'development' || true;
+const inDevelopment = process.env.NODE_ENV === 'development' || false;
 
 let mainWindow: BrowserWindow | null = null;
 
 const invokeWindow = async () => {
   mainWindow = new BrowserWindow({
-    show: false,
     center: true,
     focusable: true,
     backgroundColor: '#222831',
@@ -34,10 +33,12 @@ const invokeWindow = async () => {
   mainWindow.show();
 };
 
-app.on('ready', invokeWindow).whenReady();
+app.on('ready', invokeWindow);
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit(); //Removes app from memory in macOS environment
   }
 });
+
+app.allowRendererProcessReuse = true;

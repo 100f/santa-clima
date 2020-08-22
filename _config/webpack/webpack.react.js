@@ -1,19 +1,19 @@
 const { rootPath } = require('./base');
-const { join } = require('path');
+const { join, resolve } = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   devtool: 'source-map',
   devServer: {
-    contentBase: path.join(rootPath, 'dist/renderer'),
+    contentBase: join(rootPath, 'dist/renderer'),
     historyApiFallback: true,
     compress: true,
     hot: true,
     port: 4000,
     publicPath: '/'
   },
-  entry: path.resolve(rootPath, 'src', 'App.tsx'),
+  entry: resolve(rootPath, 'src', 'App.tsx'),
   module: {
     rules: [
       {
@@ -27,26 +27,28 @@ module.exports = {
         test: /\.css$/i,
         use: [
           'style-loader',
-          { loader: 'css-loader', options: { sourceMap: true } }
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              esModule: true
+            }
+          }
         ],
-        options: {
-          esModule: true,
-        },
-        query: {
-          presets: ['es2015', 'react']
-        }
       },
     ]
   },
   output: {
-    path: join(rootPath, 'dist/'),
-    filename: '[name].js'
+    path: join(rootPath, 'dist/renderer'),
+    filename: 'js/[name].js',
+    publicPath: './'
   },
   plugins: [
     new HtmlWebpackPlugin()
   ],
   resolve: {
     extensions: ['.tsx', '.ts', '.js',],
+    mainFields: ['main', 'module', 'browser']
   },
   target: 'electron-renderer',
 };
